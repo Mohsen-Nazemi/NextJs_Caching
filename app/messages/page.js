@@ -6,14 +6,14 @@ export const revalidate = 5;
 // export const dynamic = "force-dynamic"; is equal with cache: 'no-store'
 // export const dynamic = "force-static";
 
-export default function MessagesPage() {
+export default async function MessagesPage() {
   // unstable_noStore();
   // const response = await fetch("http://localhost:8080/messages", {
   //   next: { tags: ["msg"] },
   // });
   // const messages = await response.json();
 
-  const messages = getMessages();
+  const messages = await getMessages();
 
   if (!messages || messages.length === 0) {
     return <p>No messages found</p>;
